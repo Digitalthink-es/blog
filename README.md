@@ -101,3 +101,14 @@ Crear relación muchos a muchos entre los Post y las etiquetas.
 El estándar es *create_entidad1_entidad2_table*. La entidad 1 es la que venga antes en el abecedario (post en primer lugar, ya que la p va antes que la t).
 
 	php artisan make:migration create_post_tag_table
+	
+## Paso 4
+Crear base de datos *blog* en mysql
+Ejecutar migraciones
+	php artisan migrate
+
+
+## Tips
+Para que la base de datos se cree y ejecute todoas las migraciones ejecutar
+
+	php artisan migrate:refresh
