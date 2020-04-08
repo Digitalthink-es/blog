@@ -112,3 +112,7 @@ Ejecutar migraciones
 Para que la base de datos se cree y ejecute todoas las migraciones ejecutar
 
 	php artisan migrate:refresh
+	
+Cuando se tienen relaciones entre tablas, los tipos de datos deben ser iguales para poder realizar relaciones de 1 a muchos y de muchos a muchos.
+Por defecto la tabla users tiene un campo id de tipo  bigint, por lo que la relación de clave ajena debe definirse como 
+	*$table->unsignedBigInteger('user_id');*
