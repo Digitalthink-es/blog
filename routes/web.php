@@ -19,8 +19,17 @@ Route::redirect('/', 'blog');
 // Rutas para autenticación
 Auth::routes();
 
-// Listado de posts
-Route::get('blog', 'Web\PageController@blog')->name('blog');
+// Web
+	// Listado de posts
+	Route::get('blog', 'Web\PageController@blog')->name('blog');
 
-// Detalle de un post
-Route::get('blog/{slug}', 'Web\PageController@post')->name('post');
+	// Detalle de un post
+	Route::get('entrada/{slug}', 'Web\PageController@post')->name('post');
+
+	// Listado de elementos de una categoría
+	Route::get('categoria/{slug}', 'Web\PageController@category')->name('category');
+
+	// Listado de elementos de una etiqueta
+	Route::get('etiqueta/{slug}', 'Web\PageController@tag')->name('tag');
+
+// Admin
