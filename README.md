@@ -119,7 +119,7 @@ Ejecutar migraciones. Desde un terminal ejecutar
 
 # Paso 5. Creación de Factory y Seeders
 
-Ejecutar
+Desde un terminal ejecutar
 
 	-- Factories
 	php artisan make:factory CategoryFactory
@@ -132,6 +132,12 @@ Ejecutar
 	php artisan make:seeder TagsTableSeeder
 	php artisan make:seeder UsersTableSeeder
 
+# Paso 6. Creación del sistema de autenticación
+
+Desde un terminal ejecutar
+	
+	php artisan make:auth
+
 ## Tips
 
 Para que la base de datos se cree y ejecute todoas las migraciones ejecutar (si ponemos --seed se ejecutan los seeds definidos en el archivo DatabaseSeeder.php)
@@ -143,9 +149,12 @@ Cuando se tienen relaciones entre tablas, los tipos de datos deben ser iguales p
 Por defecto la tabla users tiene un campo id de tipo  bigint, por lo que la relación de clave ajena debe definirse como 
 	
 	$table->unsignedBigInteger('user_id');
-	
-**Factory:** Se utiliza el nombre de la entidad en  singular (representa un registro)
-**Seeder:** Se utiliza el nombre de la entidad en plural (representa una tabla)
 
-**hasMany**: Relación de 1 a n
-**belongsToMany**: Relación de m a n
+Base de datos
+
+	Factory: Se utiliza el nombre de la entidad en  singular (representa un registro)
+	Seeder: Se utiliza el nombre de la entidad en plural (representa una tabla)
+	hasMany: Relación de 1 a n
+	belongsToMany: Relación de m a n
+
+Para concer
