@@ -13,8 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Raiz. Redirecciona al listado de posts
 Route::redirect('/', 'blog');
 
+// Rutas para autenticación
 Auth::routes();
 
-Route::get('/blog', 'Web\PageController@blog')->name('blog');
+// Listado de posts
+Route::get('blog', 'Web\PageController@blog')->name('blog');
+
+// Detalle de un post
+Route::get('blog/{slug}', 'Web\PageController@post')->name('post');
