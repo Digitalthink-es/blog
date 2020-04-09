@@ -78,41 +78,74 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
-## Paso 1
-Crear proyecto Laravel desde terminal
+## Paso 1. Crear proyecto Laravel 
+
+Desde un terminal ejecutar
 
 	composer create-project --prefer-dist laravel/laravel blog
  
-## Paso 2
+## Paso 2. Crear modelos
 Crear modelo para Categorías (con -m creamos la migración)
+
+Desde un terminal ejecutar
 	
 	php artisan make:model Category -m
 	
 Crear modelo para Posts (con -m creamos la migración)
+
+Desde un terminal ejecutar
 	
 	php artisan make:model Post -m
 	
 Crear modelo para Etiquetas (con -m creamos la migración)
+
+Desde un terminal ejecutar
 	
 	php artisan make:model Tag -m
 	
-## Paso 3
-Crear relación muchos a muchos entre los Post y las etiquetas. 
+## Paso 3. Crear relación muchos a muchos entre los Post y las etiquetas. 
+
 El estándar es *create_entidad1_entidad2_table*. La entidad 1 es la que venga antes en el abecedario (post en primer lugar, ya que la p va antes que la t).
+
+Desde un terminal ejecutar
 
 	php artisan make:migration create_post_tag_table
 	
-## Paso 4
-Crear base de datos *blog* en mysql
-Ejecutar migraciones
+## Paso 4. Crear base de datos *blog* en mysql
+
+Ejecutar migraciones. Desde un terminal ejecutar
+
 	php artisan migrate
 
+# Paso 5. Creación de Factory y Seeders
+
+Ejecutar
+
+	-- Factories
+	php artisan make:factory CategoryFactory
+	php artisan make:factory PostFactory
+	php artisan make:factory TagFactory
+	
+	--Seeders
+	php artisan make:seeder CategoriesTableSeeder
+	php artisan make:seeder PostsTableSeeder
+	php artisan make:seeder TagsTableSeeder
+	php artisan make:seeder UsersTableSeeder
 
 ## Tips
-Para que la base de datos se cree y ejecute todoas las migraciones ejecutar
+
+Para que la base de datos se cree y ejecute todoas las migraciones ejecutar (si ponemos --seed se ejecutan los seeds definidos en el archivo DatabaseSeeder.php)
 
 	php artisan migrate:refresh
 	
 Cuando se tienen relaciones entre tablas, los tipos de datos deben ser iguales para poder realizar relaciones de 1 a muchos y de muchos a muchos.
+
 Por defecto la tabla users tiene un campo id de tipo  bigint, por lo que la relación de clave ajena debe definirse como 
-	*$table->unsignedBigInteger('user_id');*
+	
+	$table->unsignedBigInteger('user_id');
+	
+**Factory:** Se utiliza el nombre de la entidad en  singular (representa un registro)
+**Seeder:** Se utiliza el nombre de la entidad en plural (representa una tabla)
+
+**hasMany**: Relación de 1 a n
+**belongsToMany**: Relación de m a n
