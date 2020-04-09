@@ -137,6 +137,18 @@ Desde un terminal ejecutar
 Desde un terminal ejecutar
 	
 	php artisan make:auth
+	
+Crear controladores. Desde un terminal ejecutar
+
+	php artisan make:controller Web/PageController
+	
+# Paso 7. Crear controladores para autenticación
+
+Desde un terminal ejecutar
+	
+	php artisan make:controller Admin/TagController --resource
+	php artisan make:controller Admin/CategoryController --resource
+	php artisan make:controller Admin/PostController --resource
 
 ## Tips
 
@@ -157,4 +169,23 @@ Base de datos
 	hasMany: Relación de 1 a n
 	belongsToMany: Relación de m a n
 
-Para concer
+Para conocer la versión de Laravel de un proyecto
+
+	php artisan --version
+	
+La autenticación en Laravel 5.x y 6.x era con el comando
+
+	php artisan make:auth
+	
+En Laravel 7.x se hace con la ejecución de los siguientes comandos
+
+	composer require laravel/ui
+		npm install
+		npm run dev
+	php artisan ui vue --auth
+	
+Para crear los métodos de visualización, creación, edición y borrado en un controlador añadir --resource
+
+	Ejemplo
+	php artisan make:controller Admin/TagController --resource
+	

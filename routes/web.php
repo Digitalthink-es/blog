@@ -21,7 +21,7 @@ Auth::routes();
 
 // Web
 	// Listado de posts
-	Route::get('blog', 'Web\PageController@blog')->name('blog');
+	Route::get('blog', 			'Web\PageController@blog')->name('blog');
 
 	// Detalle de un post
 	Route::get('entrada/{slug}', 'Web\PageController@post')->name('post');
@@ -33,3 +33,6 @@ Auth::routes();
 	Route::get('etiqueta/{slug}', 'Web\PageController@tag')->name('tag');
 
 // Admin
+	Route::resource('tags', 		'Admin\TagController');
+	Route::resource('categories', 	'Admin\CategoryController');
+	Route::resource('posts', 		'Admin\PostController');
