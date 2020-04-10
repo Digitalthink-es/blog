@@ -155,7 +155,17 @@ Desde un terminal ejecutar
 Desde un terminal ejecutar
 	
 	php artisan make:request TagStoreRequest
+	php artisan make:request TagUpdateRequest
 	
+# Paso 9. Utilización de Laravel Collective para manejo de formulario
+
+- [Laravel Collective](http://laravelcollective.com).
+
+Instalación
+
+	composer require laravelcollective/html
+	
+
 
 ## Tips
 
@@ -195,4 +205,8 @@ Para crear los métodos de visualización, creación, edición y borrado en un c
 
 	Ejemplo
 	php artisan make:controller Admin/TagController --resource
+	
+Pra comprobar las rutas creadas
+
+	php artisan route:list
 	
