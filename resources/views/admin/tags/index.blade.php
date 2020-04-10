@@ -54,4 +54,3 @@
 	</div> <!-- <div class="row"> -->
 </div> <!-- <div class="container"> -->
 @endsection
-
