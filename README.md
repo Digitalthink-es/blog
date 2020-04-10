@@ -150,6 +150,13 @@ Desde un terminal ejecutar
 	php artisan make:controller Admin/CategoryController --resource
 	php artisan make:controller Admin/PostController --resource
 
+# Paso 8. Creación de validaciones de campos antes de ejecutuar acciones sobre base de datos
+
+Desde un terminal ejecutar
+	
+	php artisan make:request TagStoreRequest
+	
+
 ## Tips
 
 Para que la base de datos se cree y ejecute todoas las migraciones ejecutar (si ponemos --seed se ejecutan los seeds definidos en el archivo DatabaseSeeder.php)
