@@ -6,11 +6,13 @@
 		<div class="col-md-12 com-md-offset-2">
 			<div class="card">
 				<div class="card-header">
-					Editar etiqueta
+					Editar etiqueta {{ $tag->id }} {{ $tag->name }}
 				</div> <!-- <div class="card-header"> -->
 
 				<div class="card-body">
-					{!! Form::model(['route' => ['tags.update', $tag->id],'method' => 'PUT']) !!}
+					{!! Form::model($tag, ['route' => ['tags.update', $tag->id],
+										   'method' => 'PUT']) 
+					!!}
 						@include('admin.tags.partials.form')
 					{!! Form::close() !!}	
 				</div> <!-- <div class="card-body"> -->

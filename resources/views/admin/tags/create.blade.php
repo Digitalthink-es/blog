@@ -10,6 +10,9 @@
 				</div> <!-- <div class="card-header"> -->
 
 				<div class="card-body">
+					{!! Form::open(['route' => 'tags.store']) !!}
+					    @include('admin.tags.partials.form')
+					{!! Form::close() !!}					
 				</div> <!-- <div class="card-body"> -->
 			</div> <!-- <div class="card"> -->
 		</div> <!-- <div class="col-md-12 com-md-offset-2"> -->

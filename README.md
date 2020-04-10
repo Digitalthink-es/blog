@@ -159,12 +159,15 @@ Desde un terminal ejecutar
 	
 # Paso 9. Utilización de Laravel Collective para manejo de formulario
 
-- [Laravel Collective](http://laravelcollective.com).
+- [Laravel Collective](http://laravelcollective.com)
 
 Instalación
 
 	composer require laravelcollective/html
 	
+# Paso 10. Utilización de Plugin jQuery Plugin stringToSlug
+
+- [jQuery Plugin stringToSlug](https://github.com/leocaseiro/jQuery-Plugin-stringToSlug)
 
 
 ## Tips
@@ -209,4 +212,9 @@ Para crear los métodos de visualización, creación, edición y borrado en un c
 Pra comprobar las rutas creadas
 
 	php artisan route:list
+	
+Con la directiva asset se buscan recursos dentro de la carpeta public
+
+	Por ejemplo, para inlcuir el archivo jquery.stringtoslug.min.js
+	<script src="asset {{ 'vendor/stringToSlug/jquery.stringtoslug.min.js'}}"></script>
 	

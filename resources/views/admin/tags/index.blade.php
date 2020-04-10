@@ -37,7 +37,7 @@
 									</td>
 									<td width="10px">
 										{!! Form::open(['route' => ['tags.destroy', $tag->id],
-										'method' => 'delete'
+										'method' => 'DELETE'
 										]) !!}
 										    <button class="btn btn-sm btn-danger">Eliminar</button>
 										{!! Form::close() !!}	
