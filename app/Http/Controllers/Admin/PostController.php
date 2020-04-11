@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests\PostStoreRequest;
 use App\Http\Requests\PostUpdateRequest;
 
+use Illuminate\Support\Facades\Storage;
+
 use App\Post;
 use App\Category;
 use App\Tag;
@@ -66,6 +68,20 @@ class PostController extends Controller
     {
         $post = Post::create($request->all());
 
+        // Imagen
+            // Si viene un archivo lo almacenamos en disco y actualizamos el post creado
+            $imagen = $request->file('file'); 
+            if ($imagen)
+            {
+                $path = Storage::disk('public')
+                            ->put('images', $imagen); // Subir la imagen
+                $post->fill(['file' => asset($path)])
+                     ->save(); // Actualizar el post creado
+            }
+
+        // Etiquetas
+            $post->tags()->attach($request->get('tags')); // attach crea las relaciones
+
         return redirect()->route('posts.edit', $post->id)
             ->with('info', 'Entrada creada con éxito');
     }
@@ -119,6 +135,20 @@ class PostController extends Controller
 
         $post->fill($request->all())
             ->save();
+
+        // Imagen
+            // Si viene un archivo lo almacenamos en disco y actualizamos el post creado
+            $imagen = $request->file('file'); 
+            if ($imagen)
+            {
+                $path = Storage::disk('public')
+                            ->put('images', $imagen); // Subir la imagen
+                $post->fill(['file' => asset($path)])
+                     ->save(); // Actualizar el post creado
+            }
+
+        // Etiquetas
+            $post->tags()->sync($request->get('tags')); // sync tiene en cuenta si ya existen las relaciones y las actualiza
 
         return redirect()->route('posts.edit', $post->id)
             ->with('info', 'Entrada actualizada con éxito');
