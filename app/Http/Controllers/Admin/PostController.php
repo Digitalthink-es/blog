@@ -8,6 +8,8 @@ use App\Http\Requests\PostStoreRequest;
 use App\Http\Requests\PostUpdateRequest;
 
 use App\Post;
+use App\Category;
+use App\Tag;
 
 class PostController extends Controller
 {
@@ -27,6 +29,7 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::orderBy('id', 'DESC')
+            ->where('user_id', auth()->user()->id)
             ->paginate();
         //dd($posts);
 
@@ -41,7 +44,16 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('admin.posts.create');
+        // Seleccionar el nombre y el id de las categorías
+        $categories = Category::orderBy('name', 'ASC')
+            ->pluck('name', 'id');
+        // Seleccionar el registro entero de cada etiqueta
+        $tags = Tag::orderBy('name', 'ASC')
+            ->get();
+
+        return view('admin.posts.create')
+            ->with('categories', $categories)
+            ->with('tags', $tags);
     }
 
     /**
@@ -80,10 +92,18 @@ class PostController extends Controller
      */
     public function edit($id)
     {
+        // Seleccionar el nombre y el id de las categorías
+        $categories = Category::orderBy('name', 'ASC')
+            ->pluck('name', 'id');
+        // Seleccionar el registro entero de cada etiqueta
+        $tags = Tag::orderBy('name', 'ASC')
+            ->get();        
         $post = Post::find($id);
 
         return view('admin.posts.edit')
-            ->with('post', $post);
+            ->with('categories', $categories)
+            ->with('tags', $tags)
+            ->with('post', $post);       
     }
 
     /**
