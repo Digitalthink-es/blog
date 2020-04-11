@@ -6,7 +6,7 @@
 		<div class="col-md-12 com-md-offset-2">
 			<div class="card">
 				<div class="card-header">
-					Lista de etiqueta
+					Lista de etiquetas
 					<a href="{{ route ('tags.create') }}" class="btn btn-sm btn-primary float-right">
 						Crear
 					</a>
