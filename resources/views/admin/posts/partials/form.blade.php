@@ -67,6 +67,7 @@
 	<script src="{{ asset('js/vendor/stringToSlug/jquery.min.js') }}" ></script>
 	<script src="{{ asset('js/vendor/stringToSlug/speakingurl.min.js') }}"></script>
 	<script src="{{ asset('js/vendor/stringToSlug/jquery.stringtoslug.min.js') }}"></script>
+	<script src="{{ asset('js/vendor/ckeditor/ckeditor.js') }}"></script>	
 
 	<script>
 		$(document).ready(function() {
@@ -76,5 +77,10 @@
 		    	}
 		    });
 		});
+
+		CKEDITOR.config.height=400;
+		CKEDITOR.config.width='auto';
+		CKEDITOR.replace('body');
+
 	</script>
 @endsection

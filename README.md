@@ -169,6 +169,9 @@ Instalación
 
 - [jQuery Plugin stringToSlug](https://github.com/leocaseiro/jQuery-Plugin-stringToSlug)
 
+# Paso 11. Instalación de Ckeditor para rellenar el cuerpo de los posts
+
+- [CKEditor](http://ckeditor.com)
 
 ## Tips
 
