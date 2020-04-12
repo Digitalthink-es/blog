@@ -108,13 +108,17 @@ class PostController extends Controller
      */
     public function edit($id)
     {
+        $post = Post::find($id);
+
+        // Se consulta la política de autorización
+        $this->authorize('pass', $post); // Método pass
+
         // Seleccionar el nombre y el id de las categorías
         $categories = Category::orderBy('name', 'ASC')
             ->pluck('name', 'id');
         // Seleccionar el registro entero de cada etiqueta
         $tags = Tag::orderBy('name', 'ASC')
             ->get();        
-        $post = Post::find($id);
 
         return view('admin.posts.edit')
             ->with('categories', $categories)
@@ -132,6 +136,9 @@ class PostController extends Controller
     public function update(PostUpdateRequest $request, $id)
     {
         $post = Post::find($id);
+
+        // Se consulta la política de autorización
+        $this->authorize('pass', $post); // Método pass
 
         $post->fill($request->all())
             ->save();
@@ -163,7 +170,12 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        Post::find($id)->delete();
+        $post = Post::find($id);
+        
+        // Se consulta la política de autorización
+        $this->authorize('pass', $post); // Método pass
+
+        $post->delete();
 
         return back()
             ->with('info', "Registro con id $id eliminado corréctamente");
