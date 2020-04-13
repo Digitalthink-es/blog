@@ -11,8 +11,8 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\User::class, 29)
-        	->create(); // Crea 29 usuarios
+        //factory(App\User::class, 29)
+        //	->create(); // Crea 29 usuarios
 
         App\User::create([
         	'name' => 'Daniel Martínez',

@@ -12,10 +12,11 @@
 
 					<div class="card-body">
 						@if($post->file)
-							<img src="{{ $post->file }}" class="img-fluid">
+							<img src="{{ $post->file }}" class="card-img-top">
+							<hr>
 						@endif
 
-						{{ $post->excerpt }}
+						<strong>{{ $post->excerpt }}</strong>
 						<hr>
 						{!! $post->body !!}
 						<hr>

@@ -7,19 +7,24 @@
 			
 				@foreach($posts as $post)
 					<div class="card">
-						<div class="card-header">
-							{{ $post->name }}
-						</div>
+						<!-- Si existe una imagen del post se muestra -->
+						@if($post->file)
+							<img src="{{ $post->file }}" class="card-img-top">
+						@endif
 
 						<div class="card-body">
-							@if($post->file)
-								<img src="{{ $post->file }}" class="img-fluid">
-							@endif
+							
+							<h5 class="card-title">
+								<strong>{{ $post->name }}</strong>
+							</h5>
+						
+							<p class="card-text">
+								{{ $post->excerpt }}
+							</p>
 
-							{{ $post->excerpt }}
-							<a href="{{ route('post', $post->slug) }}" class="float-right">Leer más</a>
-						</div>
-					</div>
+							<a href="{{ route('post', $post->slug) }}" class="btn btn-primary">Leer más</a>
+						</div> <!-- <div class="card-body"> -->
+					</div> <!-- <div class="card"> -->
 
 					<br/>
 				@endforeach
